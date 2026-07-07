@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 기반 중소기업 홍보 콘텐츠 제작 실무 마스터 과정</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4fe',
+                            100: '#dbe5fc',
+                            200: '#bfd1fa',
+                            300: '#94b3f6',
+                            400: '#648df0',
+                            500: '#3b62e4',
+                            600: '#2544cb',
+                            700: '#1e35a5',
+                            800: '#1d2e87',
+                            900: '#1c2a6d',
+                            950: '#111742',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen selection:bg-brand-100 selection:text-brand-900">
+
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-brand-600 to-indigo-500 text-white p-2 rounded-xl shadow-md shadow-brand-500/20">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-brand-700 to-indigo-600 bg-clip-text text-transparent">NeoOffice AI Master</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-1">
+                <button onclick="switchTab('curriculum')" id="nav-curriculum" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all">
+                    <i class="fa-solid fa-list-check mr-1.5"></i>과정 교안 (Syllabus)
+                </button>
+                <button onclick="switchTab('material')" id="nav-material" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold text-brand-600 bg-brand-50 transition-all">
+                    <i class="fa-solid fa-book-open mr-1.5"></i>실습 교재 (Courseware)
+                </button>
+            </nav>
+
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                    <span class="w-1.5 h-1.5 mr-1.5 bg-indigo-500 rounded-full animate-pulse"></span>초격차 실무 예제 대량 탑재
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden bg-slate-900 text-white py-16 lg:py-24">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,98,228,0.2),transparent_50%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.15),transparent_45%)]"></div>
+        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                        SME 실전 액션 러닝 가이드
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+                        AI 기반 마케팅 콘텐츠<br>
+                        <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-teal-300 bg-clip-text text-transparent">멀티-컨셉 실무 마스터</span>
+                    </h1>
+                    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl leading-relaxed font-light">
+                        하나의 디자인 템플릿만으로는 충분치 않습니다. 다양한 **비주얼 스타일 리본**과 **카드뉴스 구성 템플릿**, **컨셉별 카피라이팅 엔진**을 클릭하여 최상의 홍보 포트폴리오를 구성해 보세요!
+                    </p>
+                    
+                    <div class="pt-4 flex flex-wrap gap-3">
+                        <button onclick="switchTab('material')" class="px-6 py-3 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl shadow-lg shadow-brand-600/30 transition-all flex items-center space-x-2">
+                            <span>실증교재 & 예제 실습 시작</span>
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </button>
+                        <a href="#interactive-customizer" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-xl transition-all flex items-center space-x-2">
+                            <span>가상 기업 세팅 변경</span>
+                            <i class="fa-solid fa-sliders"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Core Stats Dashboard -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-800/80 backdrop-blur-lg border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                        <h3 class="text-lg font-bold text-slate-100 mb-4 pb-3 border-b border-slate-700/60 flex items-center">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mr-2.5"></i>엔진 활성화 상태
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-900/50 p-4 rounded-2xl border border-slate-700/30">
+                                <span class="block text-xs text-slate-400 mb-1">인터랙티브 템플릿</span>
+                                <span class="text-base font-bold text-white flex items-center">
+                                    <i class="fa-solid fa-object-group text-brand-400 mr-1.5"></i>총 12가지 무드
+                                </span>
+                            </div>
+                            <div class="bg-slate-900/50 p-4 rounded-2xl border border-slate-700/30">
+                                <span class="block text-xs text-slate-400 mb-1">카드뉴스 베리에이션</span>
+                                <span class="text-base font-bold text-white flex items-center">
+                                    <i class="fa-solid fa-layer-group text-amber-400 mr-1.5"></i>3개 대표 구조
+                                </span>
+                            </div>
+                            <div class="bg-slate-900/50 p-4 rounded-2xl border border-slate-700/30">
+                                <span class="block text-xs text-slate-400 mb-1">SNS 피드 구성</span>
+                                <span class="text-base font-bold text-white flex items-center">
+                                    <i class="fa-solid fa-hashtag text-emerald-400 mr-1.5"></i>3종 카피 테마
+                                </span>
+                            </div>
+                            <div class="bg-slate-900/50 p-4 rounded-2xl border border-slate-700/30">
+                                <span class="block text-xs text-slate-400 mb-1">프롬프트 고도화</span>
+                                <span class="text-base font-bold text-white flex items-center">
+                                    <i class="fa-solid fa-shuffle text-indigo-400 mr-1.5"></i>실시간 변수 매핑
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interactive-customizer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-xl p-6 lg:p-8">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100">
+                <div class="space-y-1">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest flex items-center">
+                        <span class="flex h-2 w-2 relative mr-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
+                        </span>
+                        Dynamic Variable Engine
+                    </span>
+                    <h2 class="text-2xl font-extrabold text-slate-900 flex items-center">
+                        <i class="fa-solid fa-arrows-spin text-indigo-500 mr-2.5"></i>실시간 타깃 & 실습 기업 세팅
+                    </h2>
+                    <p class="text-sm text-slate-500">정보를 입력하면 교재 속 모든 이미지, 영상, SNS 카피 라이팅용 복사용 프롬프트가 동적으로 자동 반영됩니다!</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="resetCustomizer()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition-all flex items-center space-x-1.5">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>데이터 초기화</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6 pt-6">
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-slate-600 tracking-wide uppercase">가상 기업 이름</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-building text-sm"></i>
+                        </div>
+                        <input type="text" id="custom-company" value="네오오피스" oninput="updateAllDynamicPrompts()" class="block w-full pl-10 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all font-medium text-slate-900">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-slate-600 tracking-wide uppercase">메인 웰니스 스마트 제품</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-chair text-sm"></i>
+                        </div>
+                        <input type="text" id="custom-product" value="에르고핏 스마트 체어" oninput="updateAllDynamicPrompts()" class="block w-full pl-10 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all font-medium text-slate-900">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-slate-600 tracking-wide uppercase">핵심 타깃 Pain Point</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-user-injured text-sm"></i>
+                        </div>
+                        <input type="text" id="custom-target" value="거북목과 허리 통증을 겪는 직장인 및 개발자" oninput="updateAllDynamicPrompts()" class="block w-full pl-10 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all font-medium text-slate-900">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- ==================== TAB 1: CURRICULUM ==================== -->
+        <div id="tab-content-curriculum" class="tab-pane hidden space-y-12">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Syllabus Sidebar -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="sticky top-24">
+                        <div class="bg-gradient-to-br from-indigo-900 to-slate-950 text-white rounded-3xl p-6 shadow-xl space-y-6">
+                            <div>
+                                <span class="text-xs font-bold text-indigo-300 tracking-widest uppercase">SYLLABUS PLAN</span>
+                                <h3 class="text-xl font-bold mt-1">교육 핵심 구조 안내</h3>
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed font-light">
+                                이 교육은 단순 모방을 벗어납니다. 다양한 비주얼 스타일 가이드, 연출 시나리오, 검수 필터를 하나의 액션 체인으로 결합하여 수강자만의 자생력을 길러줍니다.
+                            </p>
+                            <div class="border-t border-slate-800 pt-4 space-y-3">
+                                <span class="text-xs font-bold text-indigo-400 block">수강 효과 및 강점</span>
+                                <div class="flex items-center space-x-2.5 text-xs text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-indigo-400"></i>
+                                    <span>컨셉별 즉각 스위칭 가능한 프롬프트 빌딩</span>
+                                </div>
+                                <div class="flex items-center space-x-2.5 text-xs text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-indigo-400"></i>
+                                    <span>상업적 사용 전 법률적 리스크 사전 필터링</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Accordion -->
+                <div class="lg:col-span-2 space-y-6">
+                    <h3 class="text-xl font-extrabold text-slate-900 flex items-center">
+                        <i class="fa-solid fa-route text-indigo-600 mr-2.5"></i>4시간 압축 멀티-테마 실무 타임라인
+                    </h3>
+                    <p class="text-sm text-slate-500 -mt-4">각 교시를 클릭하여 다양한 실습 구성과 연출 세부 과제를 확인하세요.</p>
+
+                    <!-- Acc 1 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion('syllabus-1')" class="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">1H</div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-blue-600">제 1교시 (60분)</span>
+                                    <h4 class="text-base font-bold text-slate-900">맞춤형 페르소나 설정 및 기획문 구조화</h4>
+                                </div>
+                            </div>
+                            <i id="acc-icon-syllabus-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="acc-content-syllabus-1" class="hidden border-t border-slate-100 bg-slate-50/50 px-6 py-5 space-y-3 text-sm text-slate-600">
+                            <p><strong>활용 도구:</strong> 구글 NotebookLM</p>
+                            <p><strong>주요 실습 내용:</strong> 타깃 대상을 "과로하는 개발자", "신생 기업 인사담당자", "1인 프리랜서"로 나누어 세분화된 고강도 타깃 카피 세트를 구성합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acc 2 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion('syllabus-2')" class="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center font-bold text-lg">2H</div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-violet-600">제 2교시 (60분)</span>
+                                    <h4 class="text-base font-bold text-slate-900">상세페이지 무드 연출 및 비주얼 에셋 메이킹</h4>
+                                </div>
+                            </div>
+                            <i id="acc-icon-syllabus-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="acc-content-syllabus-2" class="hidden border-t border-slate-100 bg-slate-50/50 px-6 py-5 space-y-3 text-sm text-slate-600">
+                            <p><strong>활용 도구:</strong> GPT이미지2 (DALL-E 3)</p>
+                            <p><strong>주요 실습 내용:</strong> 미니멀 스튜디오, 사이버테크, 감성 홈오피스 등 다양한 디자인 무드를 즉시 연출하는 멀티 컨셉 실습을 수행합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acc 3 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion('syllabus-3')" class="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg">3H</div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-indigo-600">제 3교시 (60분)</span>
+                                    <h4 class="text-base font-bold text-slate-900">구글 Flow 기반 숏폼 연출 비디오 빌드업</h4>
+                                </div>
+                            </div>
+                            <i id="acc-icon-syllabus-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="acc-content-syllabus-3" class="hidden border-t border-slate-100 bg-slate-50/50 px-6 py-5 space-y-3 text-sm text-slate-600">
+                            <p><strong>활용 도구:</strong> 구글 Flow (Veo)</p>
+                            <p><strong>주요 실습 내용:</strong> 트렌디한 틱톡 컷, 시네마틱 감성 컷, 정보전달 인포머셜 비디오 컷 등 무드에 따른 카메라 감독 지시어 믹싱을 실습합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acc 4 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion('syllabus-4')" class="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold text-lg">4H</div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-teal-600">제 4교시 (60분)</span>
+                                    <h4 class="text-base font-bold text-slate-900">다중 구조 카드뉴스 및 무한 컨셉 피드 구축</h4>
+                                </div>
+                            </div>
+                            <i id="acc-icon-syllabus-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="acc-content-syllabus-4" class="hidden border-t border-slate-100 bg-slate-50/50 px-6 py-5 space-y-3 text-sm text-slate-600">
+                            <p><strong>활용 도구:</strong> 피드 레이아웃 생성 및 마케팅 자가 검수 모델</p>
+                            <p><strong>주요 실습 내용:</strong> 비교 분석 구조, 해결 가이드 구조, 실제 후기 구조의 다각적 카드뉴스 구성과 오피스 유머/신뢰도 중심의 다중 SNS 텍스트 피드를 작성해 봅니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 2: COURSE MATERIAL ==================== -->
+        <div id="tab-content-material" class="tab-pane space-y-16">
+            
+            <!-- Quick Floating Anchor Buttons -->
+            <div class="bg-slate-950 p-2 rounded-2xl flex flex-wrap gap-2 sticky top-16 z-30 shadow-xl overflow-x-auto border border-slate-800">
+                <a href="#prac-section-1" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-300 bg-slate-900 hover:bg-slate-800 transition-all flex items-center space-x-1.5 flex-shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <span>1교시: 타깃 기획</span>
+                </a>
+                <a href="#prac-section-2" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-300 bg-slate-900 hover:bg-slate-800 transition-all flex items-center space-x-1.5 flex-shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-violet-500"></span>
+                    <span>2교시: 이미지 연출</span>
+                </a>
+                <a href="#prac-section-3" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-300 bg-slate-900 hover:bg-slate-800 transition-all flex items-center space-x-1.5 flex-shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                    <span>3교시: 숏폼 디렉팅</span>
+                </a>
+                <a href="#prac-section-4" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-300 bg-slate-900 hover:bg-slate-800 transition-all flex items-center space-x-1.5 flex-shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                    <span>4교시: 카드뉴스&피드</span>
+                </a>
+            </div>
+
+            <div id="prac-section-1" class="scroll-mt-36 bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                <div class="p-6 sm:p-8 bg-gradient-to-r from-blue-50 to-indigo-50/40 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md">
+                            01
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-blue-600 tracking-wider">NotebookLM 마스터 과정</span>
+                            <h3 class="text-xl font-bold text-slate-900">다차원 타깃 분석 & 카피 라이팅</h3>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold">1교시 실습</span>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div class="text-sm text-slate-600 leading-relaxed">
+                        실습 대상의 <strong>타깃 성격(Persona)</strong>에 맞춰 카피라이팅을 추출하는 초정밀 실전 실습입니다. 아래 탭을 눌러 원하는 타깃 성향을 선택해 보세요. 그에 맞춰 실습 프롬프트가 즉시 바뀝니다.
+                    </div>
+
+                    <!-- Persona Selector Ribbon -->
+                    <div class="bg-slate-50 p-1.5 rounded-xl border border-slate-200 inline-flex flex-wrap gap-1">
+                        <button onclick="selectPersona('dev')" id="btn-persona-dev" class="persona-btn px-4 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition-all">
+                            <i class="fa-solid fa-code mr-1.5"></i>과로하는 IT 개발자 타깃
+                        </button>
+                        <button onclick="selectPersona('hr')" id="btn-persona-hr" class="persona-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all">
+                            <i class="fa-solid fa-users-gear mr-1.5"></i>복지 책임자(B2B) 타깃
+                        </button>
+                        <button onclick="selectPersona('free')" id="btn-persona-free" class="persona-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all">
+                            <i class="fa-solid fa-mug-saucer mr-1.5"></i>홈오피스 프리랜서 타깃
+                        </button>
+                    </div>
+
+                    <!-- NotebookLM Live Prompt Box -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center">
+                                <i class="fa-solid fa-keyboard mr-1.5"></i>노트북LM 즉시 입력용 다이내믹 프롬프트
+                            </span>
+                            <button onclick="copyPrompt('live-prompt-notebook')" class="text-xs font-semibold text-brand-600 hover:text-brand-500 flex items-center space-x-1 transition-all">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>복사하기</span>
+                            </button>
+                        </div>
+                        <div class="relative bg-slate-900 rounded-2xl p-5 font-mono text-xs sm:text-sm text-slate-300 leading-relaxed shadow-inner">
+                            <div class="absolute top-3 right-4 text-slate-600 text-[10px] select-none">DYNAMIC ENGINE</div>
+                            <span id="live-prompt-notebook" class="block whitespace-pre-wrap">업로드된 자사 원천 소스를 기반으로, [<span class="text-company font-bold">네오오피스</span>]의 핵심 솔루션인 [<span class="text-product font-bold">에르고핏 스마트 체어</span>]를 기획할 예정이야.
+
+이번 기획의 마케팅 타깃은 '하루 12시간 코딩하느라 허리가 박살 난 풀스택 개발자'에 최적화된 고강도 테마 카피 세트야.
+이 타깃층의 극심한 통증 상황([<span class="text-target font-bold">거북목과 허리 통증을 겪는 직장인 및 개발자</span>])을 자극하여 감정적 공감을 이끌어 낼 상세페이지용 후킹 메시지 5종을 아래의 '지적이고 냉철한 엔지니어링 톤앤매너'로 전개해 줘. 제품의 실시간 센서 교정 기능을 강조해야 해.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prac-section-2" class="scroll-mt-36 bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                <div class="p-6 sm:p-8 bg-gradient-to-r from-violet-50 to-indigo-50/40 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-violet-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md">
+                            02
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-violet-600 tracking-wider">GPT이미지2 정밀 연출 과정</span>
+                            <h3 class="text-xl font-bold text-slate-900">다양한 이미지 무드 & 시각 디자인 실습</h3>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 bg-violet-100 text-violet-800 rounded-full text-xs font-bold">2교시 실습</span>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-8">
+                    <div class="text-sm text-slate-600 leading-relaxed">
+                        브랜드 가치를 대변할 상세페이지 메인 키비주얼을 **다양한 미술 및 스튜디오 조명 연출 기법**으로 다르게 도출하는 세분화 실습입니다. 원하는 컨셉 버튼을 누르면 그에 맞게 완전히 조율된 프롬프트가 완성됩니다.
+                    </div>
+
+                    <!-- Multi Style Selector Buttons -->
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold text-slate-500 block uppercase">1단계: 연출하고 싶은 비주얼 컨셉 무드 선택</span>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="selectImageStyle('minimal')" id="btn-img-minimal" class="img-style-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-violet-600 text-white transition-all shadow-sm">
+                                <i class="fa-solid fa-couch mr-1.5"></i>미니멀 스튜디오 컷
+                            </button>
+                            <button onclick="selectImageStyle('scifi')" id="btn-img-scifi" class="img-style-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all">
+                                <i class="fa-solid fa-microchip mr-1.5"></i>미래지향 사이버테크 컷
+                            </button>
+                            <button onclick="selectImageStyle('warm')" id="btn-img-warm" class="img-style-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all">
+                                <i class="fa-solid fa-mug-hot mr-1.5"></i>감성 홈오피스 가구 컷
+                            </button>
+                            <button onclick="selectImageStyle('commercial')" id="btn-img-commercial" class="img-style-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all">
+                                <i class="fa-solid fa-camera-retro mr-1.5"></i>드라마틱 상업 스튜디오 광고 컷
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Live Image Prompt Output -->
+                    <div class="grid lg:grid-cols-12 gap-8 items-start">
+                        <div class="lg:col-span-7 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center">
+                                    <i class="fa-solid fa-terminal mr-1.5"></i>DALL-E 3 전송용 커스텀 스타일 프롬프트
+                                </span>
+                                <button onclick="copyPrompt('live-prompt-gpt-image')" class="text-xs font-semibold text-brand-600 hover:text-brand-500 flex items-center space-x-1 transition-all">
+                                    <i class="fa-regular fa-copy"></i>
+                                    <span>프롬프트 복사</span>
+                                </button>
+                            </div>
+                            <div class="relative bg-slate-900 rounded-2xl p-5 font-mono text-xs text-slate-300 leading-relaxed shadow-inner h-60 overflow-y-auto custom-scrollbar">
+                                <span id="live-prompt-gpt-image" class="block whitespace-pre-wrap"></span>
+                            </div>
+                        </div>
+
+                        <!-- Realtime Visual Concept Card Preview -->
+                        <div class="lg:col-span-5 bg-slate-100 border border-slate-200 rounded-3xl p-6 flex flex-col justify-between h-[308px] relative overflow-hidden shadow-inner">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-10 transition-opacity duration-300" id="live-card-bg"></div>
+                            <div class="relative z-10 flex justify-between items-start">
+                                <span class="px-2.5 py-1 bg-violet-600 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider shadow" id="live-card-badge">MINIMAL STUDIO</span>
+                                <span class="text-slate-400 text-[10px]"><i class="fa-solid fa-crop"></i> Ratio 16:9</span>
+                            </div>
+                            
+                            <div class="relative z-10 text-center py-6">
+                                <i class="fa-solid fa-cube text-slate-700 text-4xl mb-2 animate-bounce" id="live-card-icon"></i>
+                                <h5 class="text-xs font-bold text-slate-800" id="live-card-title">미니멀 에스테틱 스튜디오 컷</h5>
+                                <p class="text-[10px] text-slate-500 mt-1 max-w-xs mx-auto leading-relaxed" id="live-card-desc">무채색 배경에 깔끔한 무광 오브제와 부드러운 빛을 사용하여 디자인 그 자체의 우수성을 표현하는 기법</p>
+                            </div>
+
+                            <div class="relative z-10 flex justify-between items-end text-[9px] text-slate-400 border-t border-slate-200/60 pt-3">
+                                <span>Brand: <span class="text-company">네오오피스</span></span>
+                                <span>Mode: Live Preview</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prac-section-3" class="scroll-mt-36 bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                <div class="p-6 sm:p-8 bg-gradient-to-r from-indigo-50 to-blue-50/40 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md">
+                            03
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 tracking-wider">구글 Flow 비디오 생성 실습</span>
+                            <h3 class="text-xl font-bold text-slate-900">카메라 워킹 & 무드별 숏폼 연출</h3>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-bold">3교시 실습</span>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div class="text-sm text-slate-600 leading-relaxed">
+                        세로형 숏폼 영상 제작 시 **영상 스타일과 화면 속도감**에 변화를 주어 더 넓은 스펙트럼의 연출 기술을 익히는 과정입니다. 원하는 연출 버전을 탭하여 최적화 지시 단어들을 수집할 수 있습니다.
+                    </div>
+
+                    <!-- Flow Video Selector Ribbon -->
+                    <div class="bg-slate-50 p-1.5 rounded-xl border border-slate-200 inline-flex flex-wrap gap-1">
+                        <button onclick="selectVideoMood('tiktok')" id="btn-video-tiktok" class="video-mood-btn px-4 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition-all">
+                            <i class="fa-solid fa-mobile-screen-button mr-1.5"></i>빠르고 감각적인 틱톡 트렌드형 (TikTok Style)
+                        </button>
+                        <button onclick="selectVideoMood('documentary')" id="btn-video-documentary" class="video-mood-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all">
+                            <i class="fa-solid fa-film mr-1.5"></i>느리고 서정적인 다큐 에스테틱형 (Apple Cinematic Style)
+                        </button>
+                        <button onclick="selectVideoMood('infomercial')" id="btn-video-infomercial" class="video-mood-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all">
+                            <i class="fa-solid fa-heart-pulse mr-1.5"></i>정보 전달에 초점을 맞춘 과학적 연출형 (Scientific Demo Style)
+                        </button>
+                    </div>
+
+                    <!-- Flow Live Prompt Box -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center">
+                                <i class="fa-solid fa-clapperboard mr-1.5"></i>구글 Flow 디렉터 프롬프트
+                            </span>
+                            <button onclick="copyPrompt('live-prompt-flow')" class="text-xs font-semibold text-brand-600 hover:text-brand-500 flex items-center space-x-1 transition-all">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>프롬프트 복사</span>
+                            </button>
+                        </div>
+                        <div class="relative bg-slate-900 rounded-2xl p-5 font-mono text-xs sm:text-sm text-slate-300 leading-relaxed shadow-inner">
+                            <span id="live-prompt-flow" class="block whitespace-pre-wrap"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prac-section-4" class="scroll-mt-36 bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                <div class="p-6 sm:p-8 bg-gradient-to-r from-teal-50 to-emerald-50/40 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md">
+                            04
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-teal-600 tracking-wider">다중 구조화 마케팅 과정</span>
+                            <h3 class="text-xl font-bold text-slate-900">카드뉴스 배리에이션 & 카피 컨셉 확장</h3>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs font-bold">4교시 실습</span>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-12">
+                    
+                    <!-- Sub Section 4.1: Card News Structure Variations -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 flex items-center">
+                                <span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-2"></span>
+                                [실습 파트 A] 다중 레이아웃 구조의 카드뉴스 배경 템플릿 실습
+                            </h4>
+                            <p class="text-sm text-slate-500 mt-1">동일한 의자 홍보라도 메시지 배치 레이아웃에 맞춰 전혀 다르게 생성할 수 있습니다.</p>
+                        </div>
+
+                        <!-- Card News Structure Selector Grid -->
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <!-- Card A Button -->
+                            <button onclick="selectCardTheme('info')" id="btn-card-info" class="card-theme-btn text-left p-5 rounded-2xl border-2 border-teal-600 bg-teal-50/20 hover:bg-slate-50 transition-all flex flex-col justify-between h-36">
+                                <span class="px-2 py-0.5 bg-teal-600 text-white rounded text-[9px] font-bold uppercase">타입 A: 정보 전달형</span>
+                                <strong class="text-sm font-extrabold text-slate-800 mt-2 block">"거북목을 악화시키는 최악의 일상 습관 3"</strong>
+                                <span class="text-[11px] text-slate-500 mt-1 block">정보 위주의 미니멀 레이블 구조</span>
+                            </button>
+                            <!-- Card B Button -->
+                            <button onclick="selectCardTheme('compare')" id="btn-card-compare" class="card-theme-btn text-left p-5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 transition-all flex flex-col justify-between h-36">
+                                <span class="px-2 py-0.5 bg-slate-200 text-slate-700 rounded text-[9px] font-bold uppercase">타입 B: 비교 분석형</span>
+                                <strong class="text-sm font-extrabold text-slate-800 mt-2 block">"일반 사무 의자 vs 고기능 스마트 체어 성능 분석"</strong>
+                                <span class="text-[11px] text-slate-500 mt-1 block">대비 레이아웃, 좌우 이분할 구도</span>
+                            </button>
+                            <!-- Card C Button -->
+                            <button onclick="selectCardTheme('review')" id="btn-card-review" class="card-theme-btn text-left p-5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 transition-all flex flex-col justify-between h-36">
+                                <span class="px-2 py-0.5 bg-slate-200 text-slate-700 rounded text-[9px] font-bold uppercase">타입 C: 후기 서사형</span>
+                                <strong class="text-sm font-extrabold text-slate-800 mt-2 block">"야근을 견뎌낸 개발자의 30일 솔직 일기"</strong>
+                                <span class="text-[11px] text-slate-500 mt-1 block">사용 사진, 말풍선 포커스 구조</span>
+                            </button>
+                        </div>
+
+                        <!-- Card Theme Live Prompt -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center">
+                                    <i class="fa-solid fa-hashtag mr-1.5"></i>선택된 카드뉴스 유형 전송용 프롬프트
+                                </span>
+                                <button onclick="copyPrompt('live-prompt-card')" class="text-xs font-semibold text-brand-600 hover:text-brand-500 flex items-center space-x-1 transition-all">
+                                    <i class="fa-regular fa-copy"></i>
+                                    <span>프롬프트 복사</span>
+                                </button>
+                            </div>
+                            <div class="relative bg-slate-900 rounded-2xl p-5 font-mono text-xs sm:text-sm text-slate-300 leading-relaxed shadow-inner">
+                                <span id="live-prompt-card" class="block whitespace-pre-wrap"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub Section 4.2: Diverse SNS Copywriting Concepts -->
+                    <div class="space-y-6 pt-6 border-t border-slate-100">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 flex items-center">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2"></span>
+                                [실습 파트 B] 인스타그램 피드 텍스트 멀티-컨셉 빌드업 실습
+                            </h4>
+                            <p class="text-sm text-slate-500 mt-1">이미지와 함께 작성할 업로드 텍스트 본문 역시 브랜드 이미지에 어울리는 최상의 톤을 선택할 수 있어야 합니다.</p>
+                        </div>
+
+                        <!-- SNS Copy Concept Switcher -->
+                        <div class="bg-slate-100 p-1.5 rounded-2xl flex flex-wrap gap-1">
+                            <button onclick="selectSnsCopy('professional')" id="btn-sns-pro" class="sns-copy-btn px-4.5 py-2 rounded-xl text-xs font-bold bg-teal-600 text-white transition-all shadow-sm">
+                                <i class="fa-solid fa-briefcase mr-1.5"></i>신뢰감을 주는 통계 기반 전문가형 (B2B 권장)
+                            </button>
+                            <button onclick="selectSnsCopy('wellness')" id="btn-sns-well" class="sns-copy-btn px-4.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-200 transition-all">
+                                <i class="fa-solid fa-spa mr-1.5"></i>라이프 스타일을 제안하는 힐링 공감형 (B2C 권장)
+                            </button>
+                            <button onclick="selectSnsCopy('meme')" id="btn-sns-meme" class="sns-copy-btn px-4.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-200 transition-all">
+                                <i class="fa-solid fa-face-laugh-squint mr-1.5"></i>야근 직장인의 직관적 유머/바이럴형 (Z세대 타깃)
+                            </button>
+                        </div>
+
+                        <!-- SNS Copy Dynamic Prompt Output -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center">
+                                    <i class="fa-solid fa-paragraph mr-1.5"></i>SNS 본문 및 해시태그 조립용 노트북LM/GPT 프롬프트
+                                </span>
+                                <button onclick="copyPrompt('live-prompt-sns')" class="text-xs font-semibold text-brand-600 hover:text-brand-500 flex items-center space-x-1 transition-all">
+                                    <i class="fa-regular fa-copy"></i>
+                                    <span>텍스트 복사</span>
+                                </button>
+                            </div>
+                            <div class="relative bg-slate-900 rounded-2xl p-5 font-mono text-xs sm:text-sm text-slate-300 leading-relaxed shadow-inner">
+                                <span id="live-prompt-sns" class="block whitespace-pre-wrap"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Safety Checklist -->
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 space-y-6">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-200">
+                            <div>
+                                <h4 class="text-base font-extrabold text-slate-900 flex items-center">
+                                    <i class="fa-solid fa-shield-halved text-teal-600 mr-2"></i>온라인 광고 리스크 예방 체크리스트
+                                </h4>
+                                <p class="text-xs text-slate-500">실습을 끝마친 홍보물 업로드 전 자가 테스트를 해보세요.</p>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm self-stretch sm:self-auto justify-between">
+                                <span class="text-xs font-bold text-slate-500">자가진단 지수:</span>
+                                <div class="flex items-center space-x-2">
+                                    <span id="safety-score" class="text-lg font-black text-teal-600">0%</span>
+                                    <div class="w-20 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                        <div id="safety-progress" class="h-full bg-teal-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid gap-4">
+                            <label class="flex items-start p-4 bg-white rounded-xl border border-slate-200 hover:border-teal-200 hover:bg-teal-50/10 cursor-pointer transition-all space-x-3.5">
+                                <input type="checkbox" onchange="calculateSafety()" class="safety-chk mt-1 rounded text-teal-600 focus:ring-teal-500/20 w-4.5 h-4.5 border-slate-300">
+                                <div class="space-y-0.5">
+                                    <strong class="text-sm font-bold text-slate-900">타사 무단 도용 여부</strong>
+                                    <p class="text-xs text-slate-500">생성된 이미지 속에 허가되지 않은 실제 타 경쟁사 상표 또는 유사 로고 형상이 들어가 있지 않은가?</p>
+                                </div>
+                            </label>
+                            <label class="flex items-start p-4 bg-white rounded-xl border border-slate-200 hover:border-teal-200 hover:bg-teal-50/10 cursor-pointer transition-all space-x-3.5">
+                                <input type="checkbox" onchange="calculateSafety()" class="safety-chk mt-1 rounded text-teal-600 focus:ring-teal-500/20 w-4.5 h-4.5 border-slate-300">
+                                <div class="space-y-0.5">
+                                    <strong class="text-sm font-bold text-slate-900">과장·허위 광고 문구 필터링</strong>
+                                    <p class="text-xs text-slate-500">문서 내에 입증할 수 없는 '세계 최고', '100% 척추 완치' 등의 과대 표현을 '코칭 지원', '인체공학적 디자인' 등으로 변경했는가?</p>
+                                </div>
+                            </label>
+                            <label class="flex items-start p-4 bg-white rounded-xl border border-slate-200 hover:border-teal-200 hover:bg-teal-50/10 cursor-pointer transition-all space-x-3.5">
+                                <input type="checkbox" onchange="calculateSafety()" class="safety-chk mt-1 rounded text-teal-600 focus:ring-teal-500/20 w-4.5 h-4.5 border-slate-300">
+                                <div class="space-y-0.5">
+                                    <strong class="text-sm font-bold text-slate-900">이미지 내 한글 깨짐 확인</strong>
+                                    <p class="text-xs text-slate-500">AI 결과물 외곽 프레임이나 라벨에 어설픈 조합의 가짜 글씨(영문/기호)가 지저분하게 남아있지 않는가?</p>
+                                </div>
+                            </label>
+                            <label class="flex items-start p-4 bg-white rounded-xl border border-slate-200 hover:border-teal-200 hover:bg-teal-50/10 cursor-pointer transition-all space-x-3.5">
+                                <input type="checkbox" onchange="calculateSafety()" class="safety-chk mt-1 rounded text-teal-600 focus:ring-teal-500/20 w-4.5 h-4.5 border-slate-300">
+                                <div class="space-y-0.5">
+                                    <strong class="text-sm font-bold text-slate-900">가독성 및 모바일 레이아웃</strong>
+                                    <p class="text-xs text-slate-500">정사각(1:1) 혹은 세로형(4:5) 화면에서 텍스트가 잘려 보이지 않도록 중앙 안전 여백 구간에 텍스트를 배치시켰는가?</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2 text-white">
+                <i class="fa-solid fa-graduation-cap text-lg"></i>
+                <span class="font-extrabold text-lg">NeoOffice AI Master Course</span>
+            </div>
+            <p class="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+                본 교안과 실증 교재는 구글 노트북LM, GPT이미지2, 구글 Flow의 통합 마케팅 교육을 최적화하기 위해 제작되었으며, 소셜 유포 전 리스크 검수를 의무 준수하도록 권고합니다.
+            </p>
+            <p class="text-xs text-slate-600">
+                &copy; 2026 NeoOffice AI Education Group. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 ease-out z-50">
+        <div class="bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-800 flex items-center space-x-3">
+            <span class="flex-shrink-0 w-6 h-6 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs">
+                <i class="fa-solid fa-check"></i>
+            </span>
+            <span id="toast-message" class="text-xs sm:text-sm font-bold text-slate-200">성공적으로 복사되었습니다.</span>
+        </div>
+    </div>
+
+    <script>
+        // State variables
+        let selectedPersonaType = 'dev';
+        let selectedImgStyleType = 'minimal';
+        let selectedVideoMoodType = 'tiktok';
+        let selectedCardThemeType = 'info';
+        let selectedSnsCopyType = 'professional';
+
+        // Tab Switch Controller
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all";
+            });
+
+            document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`nav-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "tab-btn px-4 py-2 rounded-lg text-sm font-semibold text-brand-600 bg-brand-50 transition-all";
+            }
+        }
+
+        // Syllabus Accordion Controller
+        function toggleAccordion(accId) {
+            const content = document.getElementById(`acc-content-${accId}`);
+            const icon = document.getElementById(`acc-icon-${accId}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = "rotate(0deg)";
+            }
+        }
+
+        // 1교시: Persona Switcher
+        function selectPersona(type) {
+            selectedPersonaType = type;
+            document.querySelectorAll('.persona-btn').forEach(btn => {
+                btn.className = "persona-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all";
+            });
+            const activeBtn = document.getElementById(`btn-persona-${type}`);
+            if (activeBtn) {
+                activeBtn.className = "persona-btn px-4 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition-all";
+            }
+            updateAllDynamicPrompts();
+            showToast("타깃 페르소나가 변경되었습니다.");
+        }
+
+        // 2교시: Image Style Switcher & Card Preview Update
+        function selectImageStyle(type) {
+            selectedImgStyleType = type;
+            document.querySelectorAll('.img-style-btn').forEach(btn => {
+                btn.className = "img-style-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all";
+            });
+            const activeBtn = document.getElementById(`btn-img-${type}`);
+            if (activeBtn) {
+                activeBtn.className = "img-style-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-violet-600 text-white transition-all shadow-sm";
+            }
+
+            // Update interactive preview card UI dynamically
+            const previewBg = document.getElementById('live-card-bg');
+            const previewBadge = document.getElementById('live-card-badge');
+            const previewTitle = document.getElementById('live-card-title');
+            const previewDesc = document.getElementById('live-card-desc');
+            const previewIcon = document.getElementById('live-card-icon');
+
+            if (type === 'minimal') {
+                previewBadge.className = "px-2.5 py-1 bg-violet-600 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider shadow";
+                previewBadge.textContent = "MINIMAL STUDIO";
+                previewTitle.textContent = "미니멀 에스테틱 스튜디오 컷";
+                previewDesc.textContent = "무채색 배경에 깔끔한 무광 오브제와 부드러운 빛을 사용하여 디자인 그 자체의 우수성을 표현하는 기법";
+                previewIcon.className = "fa-solid fa-couch text-slate-700 text-4xl mb-2 animate-bounce";
+            } else if (type === 'scifi') {
+                previewBadge.className = "px-2.5 py-1 bg-cyan-600 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider shadow";
+                previewBadge.textContent = "FUTURE TECH";
+                previewTitle.textContent = "미래지향 사이버테크 컷";
+                previewDesc.textContent = "네온 블루 조명과 홀로그램 UI 분석 오버레이 레이아웃으로 공학적 스마트 기술력을 강조하는 연출 기법";
+                previewIcon.className = "fa-solid fa-microchip text-cyan-600 text-4xl mb-2 animate-pulse";
+            } else if (type === 'warm') {
+                previewBadge.className = "px-2.5 py-1 bg-amber-600 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider shadow";
+                previewBadge.textContent = "COZY HOME";
+                previewTitle.textContent = "감성 홈오피스 가구 컷";
+                previewDesc.textContent = "오후 햇살이 들어오는 따뜻한 우드 톤의 서재 배경으로, 일상의 안락함과 자연 친화적 고급감을 극대화한 기법";
+                previewIcon.className = "fa-solid fa-mug-hot text-amber-600 text-4xl mb-2";
+            } else if (type === 'commercial') {
+                previewBadge.className = "px-2.5 py-1 bg-pink-600 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider shadow";
+                previewBadge.textContent = "COMMERCIAL PRO";
+                previewTitle.textContent = "드라마틱 상업 광고 컷";
+                previewDesc.textContent = "초점 거리가 얕은 렌즈와 강렬한 측면 하이라이트를 통해 마치 잡지 커버에 나오는 시그니처 컷과 같은 정밀 연출 기법";
+                previewIcon.className = "fa-solid fa-camera-retro text-pink-600 text-4xl mb-2";
+            }
+
+            updateAllDynamicPrompts();
+            showToast("이미지 스타일 무드가 변경되었습니다.");
+        }
+
+        // 3교시: Video Mood Switcher
+        function selectVideoMood(type) {
+            selectedVideoMoodType = type;
+            document.querySelectorAll('.video-mood-btn').forEach(btn => {
+                btn.className = "video-mood-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all";
+            });
+            const activeBtn = document.getElementById(`btn-video-${type}`);
+            if (activeBtn) {
+                activeBtn.className = "video-mood-btn px-4 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition-all";
+            }
+            updateAllDynamicPrompts();
+            showToast("영상 연출 무드가 변경되었습니다.");
+        }
+
+        // 4교시: Card Theme Switcher
+        function selectCardTheme(type) {
+            selectedCardThemeType = type;
+            document.querySelectorAll('.card-theme-btn').forEach(btn => {
+                btn.className = "card-theme-btn text-left p-5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 transition-all flex flex-col justify-between h-36";
+                // Reset internal badges
+                const badge = btn.querySelector('span');
+                if (badge) {
+                    badge.className = "px-2 py-0.5 bg-slate-200 text-slate-700 rounded text-[9px] font-bold uppercase";
+                }
+            });
+            const activeBtn = document.getElementById(`btn-card-${type}`);
+            if (activeBtn) {
+                activeBtn.className = "card-theme-btn text-left p-5 rounded-2xl border-2 border-teal-600 bg-teal-50/20 hover:bg-slate-50 transition-all flex flex-col justify-between h-36 shadow-md";
+                const badge = activeBtn.querySelector('span');
+                if (badge) {
+                    badge.className = "px-2 py-0.5 bg-teal-600 text-white rounded text-[9px] font-bold uppercase";
+                }
+            }
+            updateAllDynamicPrompts();
+            showToast("카드뉴스 템플릿이 변경되었습니다.");
+        }
+
+        // 4교시: SNS Copy Switcher
+        function selectSnsCopy(type) {
+            selectedSnsCopyType = type;
+            document.querySelectorAll('.sns-copy-btn').forEach(btn => {
+                btn.className = "sns-copy-btn px-4.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-200 transition-all";
+            });
+            const activeBtn = document.getElementById(`btn-sns-${type}`);
+            if (activeBtn) {
+                activeBtn.className = "sns-copy-btn px-4.5 py-2 rounded-xl text-xs font-bold bg-teal-600 text-white transition-all shadow-sm";
+            }
+            updateAllDynamicPrompts();
+            showToast("SNS 피드 카피 테마가 변경되었습니다.");
+        }
+
+        function updateAllDynamicPrompts() {
+            const company = document.getElementById('custom-company').value || '네오오피스';
+            const product = document.getElementById('custom-product').value || '에르고핏 스마트 체어';
+            const target = document.getElementById('custom-target').value || '거북목과 허리 통증을 겪는 직장인 및 개발자';
+
+            // Global UI updates for variable Spans
+            document.querySelectorAll('.text-company').forEach(el => el.textContent = company);
+            document.querySelectorAll('.text-product').forEach(el => el.textContent = product);
+            document.querySelectorAll('.text-target').forEach(el => el.textContent = target);
+
+            // 1. NotebookLM Persona Prompt Gen
+            let personaTarget = '';
+            let personaTone = '';
+            if (selectedPersonaType === 'dev') {
+                personaTarget = "하루 12시간 코딩하느라 허리가 박살 난 풀스택 개발자";
+                personaTone = "지적이고 냉철한 엔지니어링 톤앤매너로, 백센서 교정 실시간 연동을 데이터 중심으로 설득";
+            } else if (selectedPersonaType === 'hr') {
+                personaTarget = "직원들의 근골격계 질환 휴직을 줄이고 사내 복지를 극대화해 인재 이탈을 방지하고픈 인사팀 팀장";
+                personaTone = "생산성 손실 수치와 임직원 만족도 증가 통계를 중심으로 하는 차분하고 명확한 기안서 톤앤매너";
+            } else if (selectedPersonaType === 'free') {
+                personaTarget = "공유 오피스와 집을 오가며 매일 한 평 남짓한 작업 공간을 스스로 꾸려야 하는 크리에이터";
+                personaTone = "자아실현과 작업 능률, 워크웰니스를 유연하게 자극하는 세련된 미적 감성적 라이프스타일 톤앤매너";
+            }
+
+            document.getElementById('live-prompt-notebook').textContent = `업로드된 자사 원천 소스를 기반으로, [${company}]의 핵심 솔루션인 [${product}]를 기획할 예정이야.
+
+이번 기획의 마케팅 타깃은 '${personaTarget}'에 최적화된 고강도 테마 카피 세트야.
+이 타깃층의 극심한 통증 상황([${target}])을 자극하여 감정적 공감을 이끌어 낼 상세페이지용 후킹 메시지 5종을 아래의 '${personaTone}'로 전개해 줘. 제품의 실시간 센서 교정 기능을 강조해야 해.`;
+
+            // 2. GPT Image Style Prompt Gen
+            let imgDetail = '';
+            if (selectedImgStyleType === 'minimal') {
+                imgDetail = `무채색 무광 concrete 가로 질감 테이블 위에 단정히 놓인 [${product}]의 정밀 외형 컷. 부드럽고 넓게 퍼지는 스튜디오 탑 소프트 라이팅, 정교하지만 절제된 그림자. 프리미엄 미니멀리즘 감각 강조.`;
+            } else if (selectedImgStyleType === 'scifi') {
+                imgDetail = `어둡고 세련된 IT 랩실 환경. [${product}]의 요추 받침대 부근에 밝게 빛나는 시안 블루(Cyan Blue) 색상의 3D UI 척추 피팅 데이터 대시보드 그래프 레이어가 공중에 정밀하게 증강현실(AR) 형태로 얹혀져 있음. 사이버테크 느낌의 미터링 아이콘 포함.`;
+            } else if (selectedImgStyleType === 'warm') {
+                imgDetail = `따뜻한 원목 서재, 창문 틈새로 부드러운 아침 황금빛 햇살이 쏟아져 내리며 은은한 먼지 입자가 보이는 평화로운 조명. 화분 식물이 옆에 배치되어 있고 포근한 패브릭 톤의 [${product}]가 아늑한 휴식처처럼 중심에 위치함.`;
+            } else if (selectedImgStyleType === 'commercial') {
+                imgDetail = `고급 패션 잡지에 실릴 법한 어두운 흑진주 톤의 전시장. 강한 측면 백라이팅(Rim Light)과 스포트라이트가 [${product}]의 크롬 스틸 프레임에 떨어져 하이라이트 경계를 날카롭게 정의함. 배경은 완벽한 시네마틱 포커스 아웃(Bokeh effect).`;
+            }
+
+            document.getElementById('live-prompt-gpt-image').textContent = `[System: Ratio 16:9, Style: Professional Product Photography]
+
+가상의 브랜드 [${company}]의 스마트 제품인 [${product}]를 위한 상업용 대표 상세페이지 메인 그래픽. 
+${imgDetail}
+소비자가 겪는 통증 상황([${target}])을 말끔하게 해소해 줄 완벽한 기계적 피팅 구조를 조명하기 위해, 주변에 군더더기 없는 고급 구도로 배치하고 영문 브랜드명 '[${company}]'을 세련된 산세리프 폰트로 하단 여백 구석에 미니멀하게 오버레이해 줘. 한글이 깨지지 않도록 절대 의미 없는 가짜 한글 텍스트는 포함시키지 마.`;
+
+            // 3. Google Flow Video Directing Gen
+            let flowDetail = '';
+            if (selectedVideoMoodType === 'tiktok') {
+                flowDetail = `- 컷 1 (0~3초, 훅): 빠른 편집 속도. 사용자가 인상을 찌푸리며 의자에서 무너지듯 비명을 지르는 코믹하면서 자극적인 1인칭 트렌디 연출. 카메라가 빠른 속도로 흔들리며 다가감(Whip Pan).
+- 컷 2 (3~7초, 전환): 경쾌한 오디오 비트 전환과 함께 [${product}] 제품이 화려한 스핀 모션으로 방 한가운데에 등장.
+- 컷 3 (7~12초, 클로즈업): 화려하게 돌아가는 스마트 백 센서와 기어가 빠르게 맞물리는 정밀한 고속 편집 컷.
+- 컷 4 (12~15초, 아웃트로): '오늘부터 1일, 척추 환생' 문구 배치용 단색 엔딩 모션 카드.`;
+            } else if (selectedVideoMoodType === 'documentary') {
+                flowDetail = `- 컷 1 (0~4초, 훅): 아침 안개가 낀 조용한 사무실, 먼지가 어스름하게 흩날리는 역광 조명 아래 고민하는 임직원의 차분하고 서정적인 실루엣 촬영. 카메라 트래킹(Tracking).
+- 컷 2 (4~8초, 흐름): 슬로 모션으로 [${product}]의 부드러운 패브릭과 요추 받침대를 매끄럽게 어루만지는 손길 컷.
+- 컷 3 (8~12초, 디테일): 인체공학 지지대가 사용자의 허리를 아주 완만하고 부드럽게 지탱해주며 고정되는 조용하고 깊은 시네마틱 테이크.
+- 컷 4 (12~15초, 엔딩): 화면 전체가 맑은 앰버 톤으로 블러 처리되며 [${company}]의 철학 자막이 올라가는 엔딩.`;
+            } else if (selectedVideoMoodType === 'infomercial') {
+                flowDetail = `- 컷 1 (0~3초, 데이터 제시): 빨간색 경고 센서가 척추 굽어짐을 감지하여 시끄럽게 경고해 주는 투시형 다이어그램 그래픽 영상.
+- 컷 2 (3~8초, 비교 데모): 구부정한 기존 의자와 [${product}]에 완벽하게 정렬된 바른 자세를 극적인 분할 화면(Split Screen)으로 정밀 비교 분석.
+- 컷 3 (8~12초, 메커니즘): AI 메커니즘의 작동 상황을 투명 내부 하드웨어가 움직이는 원형 인포그래픽 선으로 투시 렌더링.
+- 컷 4 (12~15초, 전환): '자세 교정 솔루션' 정식 판매 공인 마크 엔딩 패널.`;
+            }
+
+            document.getElementById('live-prompt-flow').textContent = `[System: Google Flow / Video Generator Agent, Ratio: 9:16 Vertical Shorts]
+
+[${company}] 브랜드의 대표 스마트 웰니스 상품인 [${product}]를 메인 타깃([${target}])에게 직관적으로 홍보하기 위한 15초 세로형 비디오 브리프 모델링이야.
+${flowDetail}
+
+각 컷의 유기성을 유지하기 위해 인물과 제품의 마감 재질을 완벽히 동기화하고, 상업적 수준의 부드러운 물리 렌더링을 적용하여 완성시켜 줘.`;
+
+            // 4-1. Card News Content & Structure Gen
+            let cardDetail = '';
+            if (selectedCardThemeType === 'info') {
+                cardDetail = `[정보 전달형 구조 - '거북목 유발 습관 3가지']
+- 레이아웃: 상단의 30% 영역을 단정한 카드뉴스 넘버링 배지로 분리 ('FACTCHECK #1').
+- 중심 영역: '모니터에 머리를 들이미는 치명적 행위'라는 한글 가독성 자막이 들어갈 수 있도록 화이트 엠보싱 처리된 넉넉한 타이포 전용 박스 공간 마련.
+- 하단 우측: [${product}]의 내부 자동 반응형 요추 지지 센서의 모식 다이어그램이 파스텔 블루 톤앤매너로 심플하게 수록된 구도.`;
+            } else if (selectedCardThemeType === 'compare') {
+                cardDetail = `[비교 분석형 구조 - '일반 의자 VS 스마트 체어']
+- 레이아웃: 화면이 정중앙 수직 가이드라인을 기준으로 좌우(5:5)로 분할된 대칭 프레임.
+- 좌측 슬롯: 어두운 레드 엑스 표시와 함께 '구부정한 옛날 척추'를 표상하는 메탈 프레임 의자 실루엣.
+- 우측 슬롯: 신뢰감을 주는 맑은 블루 체크 표시와 함께 [${product}]에 편히 기대앉은 아름다운 정렬 자세.
+- 텍스트 공간: 두 슬롯 상단과 하단에 각각 '일반형', '에르고핏' 영문 대조 폰트만 미니멀하게 배치.`;
+            } else if (selectedCardThemeType === 'review') {
+                cardDetail = `[후기 서사형 구조 - '개발자의 30일 환생 일기']
+- 레이아웃: 둥근 모서리를 가진 모바일 스마트폰 대화창 말풍선 UI를 모티브로 한 친근한 소셜 그리드 구조.
+- 중앙 영역: 실제 개발자가 만세를 부르며 기뻐하는 행복한 얼굴의 일러스트가 워터컬러 풍으로 들어가 있고, 그 위로 '의자 하나 바꿨을 뿐인데 삶의 질이 달라졌다'는 한글 손글씨가 어울릴 수 있게 여백 설계.
+- 브랜드 마크: 하단 우측에 [${company}] 엠블럼 로고가 작고 단정하게 마감 처리.`;
+            }
+
+            document.getElementById('live-prompt-card').textContent = `[System: Ratio 1:1, Style: Flat Social Media Card News Template]
+
+소셜 미디어 홍보에 사용할 [${company}]의 정사각 템플릿 레이아웃 설계안이야.
+${cardDetail}
+
+전체 색상 구성은 파스텔톤 라이트 블루, 올리브 카키, 크림색으로 마감하고, 실제 한글 텍스트를 포토샵 등으로 위에 직접 기입할 수 있도록 지저분한 인공 가짜 글자는 완벽히 비워둔 형태로 원본을 깨끗하게 생성해 줘.`;
+
+            // 4-2. SNS Feed Copywriting Gen
+            let snsDetail = '';
+            if (selectedSnsCopyType === 'professional') {
+                snsDetail = `[B2B 전문가형 통계 기반 카피 세트]
+"체형 분석 센서 실증 결과, 자세 교정 효율 평균 42% 향상 입증!"
+사무실에 앉아 있는 시간 동안 무너진 근골격계를 방치하면, 집중력 저하와 생산성 리스크로 이어집니다. [${company}]의 특허 기술인 [${product}]의 인공지능 맞춤 센싱은 당신의 비즈니스 코어 체력을 다시 구축합니다.
+#오피스웰니스 #에르고핏 #${company} #척추건강 #스마트오피스`;
+            } else if (selectedSnsCopyType === 'wellness') {
+                snsDetail = `[B2C 힐링 감성 라이프스타일 카피 세트]
+"나에게 꼭 맞춰 다가오는 등받이의 따뜻한 위로"
+누구에게나 똑같은 의자는 이제 그만. 당신의 지친 몸에 알아서 반응하는 [${product}]에 기대어 소중한 나만의 집중 시간, 나만의 호흡을 되찾아 보세요. 오늘 하루도 고생한 내 허리에 스마트한 휴식을 선물해 봅니다.
+#나를위한선물 #홈케어 #웰니스 #마인드풀니스 #${product}`;
+            } else if (selectedSnsCopyType === 'meme') {
+                snsDetail = `[바이럴/밈 유머 카피 세트]
+"허리는 한번 나가면 절대 돌아오지 않는 철새 같은 것...😂"
+오늘도 거북목 90도로 모니터 안으로 빨려 들어가며 가열차게 야근 중이신 K-직장인 손드세요! 척추 바사삭 되기 전에 알아서 허리 강제 피팅해 주는 [${product}]로 심폐소생술 시급합니다. 
+#야근스타그램 #척추살려 #직장인생존템 #거북목탈출 #에르고핏`;
+            }
+
+            document.getElementById('live-prompt-sns').textContent = snsDetail;
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.className = "fixed bottom-6 right-6 transform translate-y-0 opacity-100 transition-all duration-300 ease-out z-50";
+            
+            setTimeout(() => {
+                toast.className = "fixed bottom-6 right-6 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 ease-out z-50";
+            }, 2500);
+        }
+
+        // Clip Board Copy Fallback function as requested
+        function copyPrompt(elementId) {
+            const textElement = document.getElementById(elementId);
+            const textToCopy = textElement.textContent;
+
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast("선택한 실습 프롬프트가 복사되었습니다!");
+                } else {
+                    showToast("복사 실패. 수동 선택 복사를 권장합니다.");
+                }
+            } catch (err) {
+                showToast("오류가 발생해 복사하지 못했습니다.");
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        // Reset inputs to standard placeholder values
+        function resetCustomizer() {
+            document.getElementById('custom-company').value = "네오오피스";
+            document.getElementById('custom-product').value = "에르고핏 스마트 체어";
+            document.getElementById('custom-target').value = "거북목과 허리 통증을 겪는 직장인 및 개발자";
+            
+            // Reset selectors
+            selectedPersonaType = 'dev';
+            selectedImgStyleType = 'minimal';
+            selectedVideoMoodType = 'tiktok';
+            selectedCardThemeType = 'info';
+            selectedSnsCopyType = 'professional';
+
+            // Redraw active classes
+            selectPersona('dev');
+            selectImageStyle('minimal');
+            selectVideoMood('tiktok');
+            selectCardTheme('info');
+            selectSnsCopy('professional');
+
+            updateAllDynamicPrompts();
+            showToast("실습 기본값으로 복원되었습니다.");
+        }
+
+        // Interactive Safety Gauge calculator
+        function calculateSafety() {
+            const checkBoxes = document.querySelectorAll('.safety-chk');
+            const total = checkBoxes.length;
+            let checkedCount = 0;
+            
+            checkBoxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+
+            const percent = Math.round((checkedCount / total) * 100);
+            
+            const scoreLabel = document.getElementById('safety-score');
+            const scoreBar = document.getElementById('safety-progress');
+
+            scoreLabel.textContent = `${percent}%`;
+            scoreBar.style.width = `${percent}%`;
+
+            if (percent === 100) {
+                scoreLabel.className = "text-lg font-black text-emerald-600 animate-pulse";
+                scoreBar.className = "h-full bg-emerald-500 rounded-full transition-all duration-300";
+                showToast("훌륭합니다! 4가지 필수 검증 요건을 통과하여 즉시 출시 가능합니다.");
+            } else {
+                scoreLabel.className = "text-lg font-black text-teal-600";
+                scoreBar.className = "h-full bg-teal-500 rounded-full transition-all duration-300";
+            }
+        }
+
+        // Initial setup on Window Load
+        window.onload = function() {
+            updateAllDynamicPrompts();
+            calculateSafety();
+        };
+    </script>
+</body>
+</html>
